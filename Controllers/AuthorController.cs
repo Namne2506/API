@@ -54,6 +54,19 @@ namespace WebApplication1.Controllers
                 return BadRequest(ex.Message.ToString());
             }
         }
+                 [HttpPut]
+         public IActionResult Put(Author author)
+         {
+             try
+             {
+                 var data = repos.Update(author);
+                 return StatusCode(404, data);
+             }
+             catch(Exception ex)
+             {
+                 return BadRequest(ex.Message);
+             }
+         }
 
     }
 }
